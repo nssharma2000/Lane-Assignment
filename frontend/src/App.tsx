@@ -163,7 +163,8 @@ function App() {
       <div className={`w-[100%] mx-auto ${bugExpanded ? "flex" : "hidden" } flex-col justify-start items-center`}>
               {
 
-                allFeedback.filter((item) => selectedFilters?.includes("Bug") && item.category === "Bug")
+                allFeedback
+                .filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Bug") && item.category === "Bug" : item.category === "Bug")
                 .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                 .length > 0 ?
                 (
@@ -180,7 +181,7 @@ function App() {
                 
                     :   
                     allFeedback
-                    .filter((item) => selectedFilters?.includes("Bug") && item.category === "Bug")
+                    .filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Bug") && item.category === "Bug" : item.category === "Bug")
                     .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                       .map((feedback: any, index) =>
                         <div key={ index } className="w-[90%] flex flex-col justify-center items-center p-4 mb-4 bg-white rounded-md">
@@ -214,7 +215,7 @@ function App() {
       </div>
       <div className={`w-[100%] mx-auto ${featureExpanded ? "flex" : "hidden"} flex-col justify-start items-center`}>
               {
-                allFeedback.filter((item) => selectedFilters?.includes("Feature") && item.category === "Feature")
+                allFeedback.filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Feature") && item.category === "Feature" : item.category === "Feature")
                 .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                 .length > 0 ?
                 (
@@ -230,7 +231,7 @@ function App() {
                 
                     :   
                     allFeedback
-                    .filter((item) => selectedFilters?.includes("Feature") && item.category === "Feature")
+                    .filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Feature") && item.category === "Feature" : item.category === "Feature")
                     .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                       .map((feedback: any, index) =>
                         <div key={ index } className="w-[90%] flex flex-col justify-center items-center p-4 mb-4 bg-white rounded-md">
@@ -264,7 +265,7 @@ function App() {
       </div>
       <div className={`w-[100%] mx-auto ${improvementExpanded ? "flex" : "hidden" } flex-col justify-start items-center`}>
               {
-                allFeedback.filter((item) => selectedFilters?.includes("Improvement") && item.category === "Improvement")
+                allFeedback.filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Improvement") && item.category === "Improvement" : item.category === "Improvement")
                 .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                 .length > 0 ?
                 (
@@ -280,7 +281,7 @@ function App() {
                 
                     :   
                     allFeedback
-                    .filter((item) => selectedFilters?.includes("Improvement") && item.category === "Improvement")
+                    .filter((item) => selectedFilters.length > 0 ? selectedFilters?.includes("Improvement") && item.category === "Improvement" : item.category === "Improvement")
                     .filter((item) => item.title.toLowerCase().includes(searchQuery.toLowerCase()))
                       .map((feedback: any, index) =>
                         <div key={ index } className="w-[90%] flex flex-col justify-center items-center p-4 mb-4 bg-white rounded-md">
