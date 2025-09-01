@@ -5,7 +5,7 @@ const FeedbackModel = require('./models/feedback')
 
 const app = express()
 
-let frontend_path = "http://localhost:5173"
+let frontend_path = "https://lane-assignment-cfkn.vercel.app"
 
 app.use(cors({
     origin: frontend_path
