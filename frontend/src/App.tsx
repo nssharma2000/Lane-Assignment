@@ -22,7 +22,7 @@ function App() {
   const [isIncompleteErrorToastVisible, setIsIncompleteErrorToastVisible] = useState<boolean>(false)
 
   const [allFeedback, setAllFeedback] = useState<any[]>([])
-  const [finalFeedback, setFinalFeedback] = useState<any[]>([])
+  
 
   const [bugExpanded, setBugExpanded] = useState<boolean>(true)
   const [featureExpanded, setFeatureExpanded] = useState<boolean>(true)
@@ -50,7 +50,7 @@ function App() {
     setSortingOption(event.target.value)
   }
 
-  const toggleGroupBy = (event: any) => {
+  const toggleGroupBy = () => {
     setGroupBy(!groupBy)
   }
 
@@ -81,6 +81,11 @@ function App() {
     finally
     {
       setIsSubmitting(false)
+      setIsSuccessToastVisible(true)
+      await getFeedback()
+      setTimeout(() => {
+        setIsSuccessToastVisible(false)
+      }, 3000)
     }
   }
 
@@ -92,7 +97,6 @@ function App() {
       const response = await axios.get(nodeBackendUrl + "/feedback")
       console.log(response.data)
       setAllFeedback(response.data)
-      setFinalFeedback(response.data)
     }
     catch (error)
     {
@@ -118,6 +122,17 @@ function App() {
       <div className="w-[80%] mx-auto md:w-[60%] p-4 bg-red-500 mb-4 text-white rounded-md text-center">
         <p className="text-lg">
           Error submitting feedback.
+        </p>
+      </div>
+    )
+  }
+
+  function SuccessToast()
+  {
+    return (
+      <div className="w-[80%] mx-auto md:w-[60%] p-4 bg-green-200 mb-4 text-green-600 rounded-md text-center">
+        <p className="text-lg">
+          Feedback submitted successfully!
         </p>
       </div>
     )
@@ -341,6 +356,9 @@ function App() {
               }
               { isErrorToastVisible && 
               <ErrorToast />
+              }
+              { isSuccessToastVisible &&
+              <SuccessToast />
               }
               <button type="submit" className="w-[40%] md:w-[10%] text-md md:text-lg font-semibold text-white p-2 flex justify-center items-center rounded-md bg-blue-500 hover:bg-blue-700 transition-all duration-300
               cursor-pointer">
