@@ -7,7 +7,9 @@ This is an app that allows entering feedback and sorting, searching and filterin
 ## Tech Stack
 
 **Frontend**: React.js, Tailwind CSS
+
 **Backend**: Node.js, Express.js
+
 **Database**: MongoDB
 
 ## Setup
