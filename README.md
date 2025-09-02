@@ -37,4 +37,4 @@ There are 2 endpoints:
 1. Feedback (GET): It fetches all feedback items from a MongoDB collection.
 2. Feedback (POST): It creates a new record in a MongoDB collection.
 
-**I did not use AI to complete this assignment**
+**I did not use AI to complete this assignment.**
