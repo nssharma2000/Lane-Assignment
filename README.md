@@ -6,9 +6,9 @@ This is an app that allows entering feedback and sorting, searching and filterin
 
 ## Tech Stack
 
-** Frontend **: React.js, Tailwind CSS
-** Backend **: Node.js, Express.js
-** Database **: MongoDB
+**Frontend**: React.js, Tailwind CSS
+**Backend**: Node.js, Express.js
+**Database**: MongoDB
 
 ## Setup
 
@@ -35,4 +35,4 @@ There are 2 endpoints:
 1. Feedback (GET): It fetches all feedback items from a MongoDB collection.
 2. Feedback (POST): It creates a new record in a MongoDB collection.
 
-** I did not use AI to complete this assignment **
+**I did not use AI to complete this assignment**
